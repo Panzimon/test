@@ -85,3 +85,33 @@ function normalize(arr) {
         return word[0].toUpperCase()+word.substring(1).toLowerCase();
     });
 }
+/*
+ 小明希望利用map()把字符串变成整数，他写的代码很简洁：
+
+ 'use strict';
+
+ var arr = ['1', '2', '3'];
+ var r;
+
+ r = arr.map(parseInt());
+
+ alert('[' + r[0] + ', ' + r[1] + ', ' + r[2] + ']');
+ 结果竟然是[1, NaN, NaN]，
+ 小明百思不得其解，请帮他找到原因并修正代码。
+
+ 由于map()接收的回调函数可以有3个参数：
+ callback(currentValue, index, array)，
+ 通常我们仅需要第一个参数，而忽略了传入的后面两个参数。
+ 不幸的是，parseInt(string, radix)没有忽略第二个参数，
+ 导致实际执行的函数分别是：
+
+ parseInt('0', 0); // 0, 按十进制转换
+
+ parseInt('1', 1); // NaN, 没有一进制
+
+ parseInt('2', 2); // NaN, 按二进制转换不允许出现2
+
+ 可以改为r = arr.map(Number);，
+ 因为Number(value)函数仅接收一个参数。
+
+ */
