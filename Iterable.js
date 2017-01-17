@@ -45,3 +45,14 @@ a.forEach(function (ele,index,arr) {
     console.log(ele + " "+ index);
 });
 
+s.forEach(function (v,vv,set) {
+    console.log(vv+":"+v);
+});
+
+d.forEach(function (v,key,map) {
+    console.log(key+": "+v);
+});
+
+d.forEach(function (value) {
+    console.log(value);
+});
