@@ -63,10 +63,25 @@ function stringToint(s) {
     return +s;
 }
 //全部变小写
-function LowerCase(arr) {
+function LowerCase1(arr) {
 
     return arr.map(function(word){
-        return word.split().map(function(letter){return letter.toLowerCase();}).toString();
+        return word.split().map(
+            function(letter){
+                return letter.toLowerCase();}).toString();
     });
 }
+//简单写法
+function LowerCase2(arr) {
 
+    return arr.map(function(word){
+        return word.toLowerCase();
+    });
+}
+//名字写法正常化
+function normalize(arr) {
+
+    return arr.map(function(word){
+        return word[0].toUpperCase()+word.substring(1).toLowerCase();
+    });
+}
