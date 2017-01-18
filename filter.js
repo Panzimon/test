@@ -21,3 +21,44 @@ console.log(fil);
 console.log(fil2);
 console.log(fil3);
 
+//利用filter，可以巧妙地去除Array的重复元素：
+
+
+var
+    r,
+    arrr = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
+
+rr = arrr.filter(function (element, index, self) {
+    return self.indexOf(element) === index;
+});
+
+console.log(rr.toString());
+
+/*
+ 去除重复元素依靠的是indexOf总是返回第一个元素的位置，
+ 后续的重复元素位置与indexOf返回的位置不相等，因此被filter滤掉了。
+ */
+
+//素数1
+function get_primes(arr) {
+
+    return arr.filter(function(x){
+        for(var i=2;i<x;i++){
+            if(x%i==0){
+                return false;
+            }
+        }
+        return x !=1;
+    });
+}
+
+//素数2
+function get_primes(arr) {
+    return arr.filter(function (element, index, root){
+        if(element===1)return false;
+        for(var i=2;i<=Math.sqrt(element);i++){
+            if (element % i === 0) return false;
+        }
+        return true;
+    });
+}
