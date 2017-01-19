@@ -31,3 +31,11 @@ var s1 = (x,y,...rest)  =>{
 };
 
 console.log(s1(1,2,2,3,4,124,6,2,5,5));
+
+// SyntaxError: x => { foo: x }
+
+var t4 = x => ({ foo: x }) ;
+
+console.log(t4("** No.1!"));
+
+
