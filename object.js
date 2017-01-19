@@ -74,3 +74,10 @@ console.log(t.next());
 
  确实如此，这两个特殊值要除外，虽然null还伪装成了object类型。
  */
+
+123.toString(); // SyntaxError
+//遇到这种情况，要特殊处理一下：
+
+123..toString(); // '123', 注意是两个点！
+(123).toString(); // '123'
+
