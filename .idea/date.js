@@ -25,3 +25,13 @@ var d = new Date(2015, 4, 6, 23, 30, 10,13 );
 console.log(d);
 
 console.log(new Date().getTimezoneOffset()/60);
+
+console.log(d.toLocaleDateString());
+console.log(d.toUTCString());//toUTCString() UTC时间
+
+if (!Date.now) {
+    console.log(new Date().getTime());
+} else {
+    console.log(Date.now()); // 老版本IE没有now()方法
+}
+
