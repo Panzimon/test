@@ -21,3 +21,7 @@ for(var i of g()){
     console.log(i);
 }
 
+var d = new Date(2015, 4, 6, 23, 30, 10,13 );
+console.log(d);
+
+console.log(new Date().getTimezoneOffset()/60);
