@@ -43,12 +43,12 @@ console.log(re2);
 
 console.log(re1.test('pan-0113'));//test('pan\-0113')也是true
 
-var re = /^\d{3}\-\d{3,8}$/;//
+var re = /^\d{3}-\d{3,8}$/;//
 // 要匹配010\\-12345的话，
 // /^\d{3}\\-\d{3,8}$/
-// 要匹配010\-12345的话，
-// /^\d{3}\-\d{3,8}$/也行
+
 // why...
 console.log(re.test('010-12345')); // true
+console.log(re.test('010\-12345')); // true
 console.log(re.test('010-1234x')); // false
 console.log(re.test('010 12345')); // false
