@@ -52,3 +52,62 @@ console.log(re.test('010-12345')); // true
 console.log(re.test('010\-12345')); // true
 console.log(re.test('010-1234x')); // false
 console.log(re.test('010 12345')); // false
+
+
+var a = 'a b  c'.split(' ');//attention the space between b&c
+// 无法识别连续的空格
+console.log(a);
+
+var aaa = 'a b   c'.split(/\s+/);
+console.log(aaa);
+
+var aa = 'a,b, c;;;  d'.split(/[\s\,\;]+/);
+console.log(aa);
+
+var re = /^(\d{3})-(\d{3,8})$/;
+console.log(re.exec('010-12345')); // ['010-12345', '010', '12345']
+re.exec('010 12345'); // null
+
+
+var reg;
+reg = /^(0[0-9]|1[0-9]|2[0-3]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])\:(0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]|[0-9])$/;
+
+var reh = /^(\d+)(0*)$/;
+reh.exec('102300'); // ['102300', '102300', '']
+/*
+ *表示任意个字符（包括0个），用+表示至少一个字符，
+ * 用?表示0个或1个字符，用{n}表示n个字符，
+ * 用{n,m}表示n-m个字符
+ */
+
+var re3 = /^(\d+?)(0*)$/;
+re3.exec('102300'); // ['102300', '1023', '00']
+
+var r1 = /test/g;
+// 等价于:
+var r2 = new RegExp('test', 'g');
+
+//全局匹配可以多次执行exec()方法来搜索一个匹配的字符串。
+// 当我们指定g标志后，每次运行exec()，
+// 正则表达式本身会更新lastIndex属性，表示上次匹配到的最后索引
+
+var s;
+s = 'JavaScript, VBScript, JScript and ECMAScript';
+var re4;
+re4 = /[a-zA-Z]+Script/g;
+
+ re4.exec(s);
+    console.log(re4.lastIndex);
+re4.exec(s);
+console.log(re4.lastIndex);
+re4.exec(s);
+console.log(re4.lastIndex);
+re4.exec(s);
+console.log(re4.lastIndex);
+re4.exec(s);
+console.log(re4.lastIndex);
+
+//全局匹配类似搜索，因此不能使用/^...$/，那样只会最多匹配一次。
+// 正则表达式还可以指定i标志，
+// 表示忽略大小写，m标志，表示执行多行匹配。
+
