@@ -111,3 +111,77 @@ console.log(re4.lastIndex);
 // 正则表达式还可以指定i标志，
 // 表示忽略大小写，m标志，表示执行多行匹配。
 
+/*
+ <html>
+ <head>
+ <script type="text/javascript">
+ //正则替换链接，链接有换行
+ function t1(){
+ var con = document.getElementsByName('content')[0].value;//内容里有<a href="">.....</a>，但是有换行
+ var reg = /<a[\s]+[\d\D]*<\/a>/g;//采用[\d\D]或[\w\W]或[\s\S]来解决不能换行问题
+ alert(con.replace(reg,'----'));
+ }
+ //正则把每一行的结尾数字，换成#号---多行模式，添加/m(每行当作结尾)和/g(全局匹配)模式增强符
+ function t2(){
+ var con = document.getElementsByName('content')[0].value;//写几行文字，每行以数字结尾
+ var reg = /\d+$/gm;
+ alert(con.replace(reg,'#'));
+ }
+ </script>
+ </head>
+ <body>
+ <textarea rows="5" cols="30" name="content"></textarea><br />
+ <button onclick="t1();">正则替换链接(需要考虑换行情况)</button><br />
+ <button onclick="t2();">正则多行替换</button><br />
+ </body>
+ </html>
+ */
+
+/*
+ 请尝试写一个验证Email地址的正则表达式。版本一应该可以验证出类似的Email：
+
+ 'use strict';
+
+ var re = /^[\w.]+@[\w.]+\.\w+$/;
+//我的版本↑
+ // 测试:
+ var
+ i,
+ success = true,
+ should_pass = ['someone@gmail.com', 'bill.gates@microsoft.com', 'tom@voyager.org', 'bob2015@163.com'],
+ should_fail = ['test#gmail.com', 'bill@microsoft', 'bill%gates@ms.com', '@voyager.org'];
+ for (i = 0; i < should_pass.length; i++) {
+ if (!re.test(should_pass[i])) {
+ alert('测试失败: ' + should_pass[i]);
+ success = false;
+ break;
+ }
+ }
+ for (i = 0; i < should_fail.length; i++) {
+ if (re.test(should_fail[i])) {
+ alert('测试失败: ' + should_fail[i]);
+ success = false;
+ break;
+ }
+ }
+ if (success) {
+ alert('测试通过!');
+ }
+ */
+
+/*
+ 版本二可以验证并提取出带名字的Email地址：
+
+ 'use strict';
+
+ var re = /^\<(\w+\s+\w+)\>\s+([\w.]+@[\w.]+\.\w+)$/g;
+=。=坑爹，忘记了把两个尖叫括号括在外面。。。
+ // 测试:
+ var r = re.exec('<Tom Paris> tom@voyager.org');
+ if (r === null || r.toString() !== ['<Tom Paris> tom@voyager.org', 'Tom Paris', 'tom@voyager.org'].toString()) {
+ alert('测试失败!');
+ }
+ else {
+ alert('测试成功!');
+ }
+ */
