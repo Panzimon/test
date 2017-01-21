@@ -52,4 +52,30 @@
  为了区分普通函数和构造函数，按照约定，
  构造函数首字母应当大写，而普通函数首字母应当小写，
  这样，一些语法检查工具如jslint将可以帮你检测到漏写的new
+
+ 我们还可以编写一个createStudent()函数，在内部封装所有的new操作。一个常用的编程模式像这样：
+
+ function Student(props) {
+ this.name = props.name || '匿名'; // 默认值为'匿名'
+ this.grade = props.grade || 1; // 默认值为1
+ }
+
+ Student.prototype.hello = function () {
+ alert('Hello, ' + this.name + '!');
+ };
+
+ function createStudent(props) {
+ return new Student(props || {})
+ }
+ 这个createStudent()函数有几个巨大的优点：
+ 一是不需要new来调用，二是参数非常灵活，可以不传，也可以这么传：
+ var xiaoming = createStudent({
+ name: '小明'
+ });
+
+ xiaoming.grade; // 1
+
+ =。=定义的prototype方法不要忘了加this。。。
  */
+
+
