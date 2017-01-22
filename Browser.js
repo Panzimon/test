@@ -99,4 +99,12 @@ window对象有innerWidth和innerHeight属性
  这个行为由浏览器实现，
  主流浏览器均支持httpOnly选项，IE从IE6 SP1开始支持
  */
+/*
+ JavaScript可以调用history对象的back()或forward ()，
+ 相当于用户点击了浏览器的“后退”或“前进”按钮
+ 新手开始设计Web页面时喜欢在登录页登录成功时调用history.back()，
+ 试图回到登录前的页面。这是一种错误的方法。
+
+ 任何情况，你都不应该使用history这个对象了
+ */
 
