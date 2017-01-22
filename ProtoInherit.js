@@ -55,3 +55,12 @@ console.log(xiaoming.__proto__.__proto__ === Student.prototype); // true
 // 验证继承关系:
 xiaoming instanceof PrimaryStudent; // true
 xiaoming instanceof Student; // true
+
+function  inherits(child,parent) {
+    var F = function () {
+
+    };
+    F.prototype = parent.prototype;
+    child.prototype = new F();//new F()别老记成 F.prototype
+    child.prototype.constructor = child;
+}
