@@ -31,3 +31,55 @@ list.appendChild(haskell);
  d.innerHTML = 'p { color: red }';
  document.getElementsByTagName('head')[0].appendChild(d);
  */
+
+/*
+ 用parentElement.insertBefore(newElement, referenceElement);，
+ 子节点会插入到referenceElement之前
+ */
+
+/*
+ <ol id="test-list">
+ <li class="lang">Scheme</li>
+ <li class="lang">JavaScript</li>
+ <li class="lang">Python</li>
+ <li class="lang">Ruby</li>
+ <li class="lang">Haskell</li>
+ </ol>
+ 按字符串顺序重新排序DOM节点：
+
+ 'use strict';
+
+ // sort list:
+ var tl = document.getElementById('test-list'),
+ liarr = [],i;
+ for (i=0; i<tl.children.length; i++) {
+ liarr.push(tl.children[i].innerText);
+ }
+ liarr.sort();
+ for (i=0; i<liarr.length; i++) {
+ tl.children[i].innerText = liarr[i];
+ }
+
+ // 测试:
+ ;(function () {
+ var
+ arr, i,
+ t = document.getElementById('test-list');
+ if (t && t.children && t.children.length === 5) {
+ arr = [];
+ for (i=0; i<t.children.length; i++) {
+ arr.push(t.children[i].innerText);
+ }
+ if (arr.toString() === ['Haskell',
+ 'JavaScript', 'Python', 'Ruby', 'Scheme'].toString()) {
+ alert('测试通过!');
+ }
+ else {
+ alert('测试失败: ' + arr.toString());
+ }
+ }
+ else {
+ alert('测试失败!');
+ }
+ })();
+ */
