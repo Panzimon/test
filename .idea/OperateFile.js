@@ -68,4 +68,40 @@
  // 以DataURL的形式读取文件:
  reader.readAsDataURL(file);
  });
+
+ 以DataURL的形式读取到的文件是一个字符串，
+ 类似于data:image/jpeg;base64,/9j/4AAQSk...(base64编码)...，
+ 常用于设置图像。如果需要服务器端处理，把字符串base64,
+ 后面的字符发送给服务器并用Base64解码就可以得到原始文件的二进制内容
+ */
+
+/*
+ 单线程模式执行的JavaScript，如何处理多任务？
+
+ 在JavaScript中，执行多任务实际上都是异步调用，比如上面的代码：
+
+ reader.readAsDataURL(file);
+ 就会发起一个异步操作来读取文件内容。因为是异步操作，所以我们在JavaScript代码中就不知道什么时候操作结束，因此需要先设置一个回调函数：
+
+ reader.onload = function(e) {
+ // 当文件读取完成后，自动调用此函数:
+ };
+ 当文件读取完成后，
+ JavaScript引擎将自动调用我们设置的回调函数。执行回调函数时，
+ 文件已经读取完毕，所以我们可以在回调函数内部安全地获得文件内容。
+
+ 当文件读取完成后，JavaScript引擎将自动调用我们设置的回调函数。执行回调函数时，文件已经读取完毕，
+ 所以我们可以在回调函数内部安全地获得文件内容
+
+ //大神回复
+ ！！！
+ 层主想表达的是onload事件的参数e(vent)是否从onchange事件外部传递进来，如果是，那么在示例中并onchange函数并没有传进来任何参数，那么参数e是怎么来的。
+
+ 其实，onchange, onload等事件是通过回调的方式执行的，首先是HTML DOM Event 对象分发事件句柄(event handlers)给可能需要执行的函数，当某个事件被触发(fire)时，句柄执行对应元素的onload等事件定义函数。
+
+ 但是如果需要获得event对象所存储的状态（例如获取调用onload事件的元素）,那么可以通过event.target（例子中的e.target）来获得，这个event就是回调参数，实际上引用的是DOM Event对象，处在dom树的顶层。
+
+ 而依照程序执行状况来看，这个回调参数Event是在addListener函数中处理传入，所以onchange事件被触发时也已经一并传入了Event对象实例，change事件中的function () {}参数列表为空是表示没有用户自定义参数！
+
+ 如果上述观点有错误，欢迎大家指正！
  */
