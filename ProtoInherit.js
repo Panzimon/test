@@ -25,5 +25,33 @@ function PrimaryStudent(props) {
  ----> Student.prototype ----> Object.prototype ----> null
  */
 //直接
-PrimaryStudent.prototype = Student.prototype ;
+//PrimaryStudent.prototype = Student.prototype ;
 //好吧，这样不行
+
+//正解→借助一个中间函数实现正确的原型链
+function F() {
+}
+
+F.prototype = Student.prototype ;
+
+PrimaryStudent.prototype = new F();
+// 把PrimaryStudent原型的构造函数修复为PrimaryStudent:
+PrimaryStudent.prototype.constructor = PrimaryStudent ;
+
+PrimaryStudent.prototype.getGrade = function () {
+    return this.grade;
+};//在PrimaryStudent原型（就是new F()对象）上定义方法
+
+var xiaoming = new PrimaryStudent({
+    name: '小明',
+    grade: 2
+});
+console.log(xiaoming.name); // '小明'
+console.log(xiaoming.grade);
+
+xiaoming._proto_ === PrimaryStudent.prototype; // true
+console.log(xiaoming.__proto__.__proto__ === Student.prototype); // true
+
+// 验证继承关系:
+xiaoming instanceof PrimaryStudent; // true
+xiaoming instanceof Student; // true
