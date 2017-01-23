@@ -54,3 +54,6 @@
  $('p.red,p.green');
  // 把<p class="red">和<p class="green">都选出来
  */
+/*
+ selected = $('[class^="color-"]');注意引号的使用
+ */
