@@ -32,3 +32,29 @@
  // JavaScript，因为JavaScript是往前第一个符合选择器条件的节点
  */
 
+/*
+ filter()方法可以过滤掉不符合选择器条件的节点：
+
+ var langs = $('ul.lang li'); // 拿到JavaScript, Python, Swift, Scheme和Haskell
+ var a = langs.filter('.dy'); // 拿到JavaScript, Python, Scheme
+ */
+
+/*
+ var langs = $('ul.lang li');
+  // 拿到JavaScript, Python, Swift, Scheme和Haskell
+ langs.filter(function () {
+ return this.innerHTML.indexOf('S') === 0;
+ // 返回S开头的节点
+ });
+ // 拿到Swift, Scheme
+ */
+/*
+ map()方法把一个jQuery对象包含的若干DOM节点转化为其他对象：
+
+ var langs = $('ul.lang li');
+ // 拿到JavaScript, Python, Swift, Scheme和Haskell
+ var arr = langs.map(function () {
+ return this.innerHTML;//?不是应该是.html()吗-。-
+ }).get(); // 用get()拿到包含string的Array：
+ ['JavaScript', 'Python', 'Swift', 'Scheme', 'Haskell']
+ */
