@@ -63,5 +63,4 @@
  ctx.font = '26px Arial';
  ctx.fillStyle = '#333333';
  ctx.fillText('带阴影的文字', 50,50);
-
  */
