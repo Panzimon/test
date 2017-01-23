@@ -37,11 +37,17 @@ function test(resolve,reject){
         }
     },timeOut * 1000);
 }
-
+/*
 var p1 = new Promise(test);
 var p2 = p1.then(function (result) {
     console.log('成功：'+ result);
 });
 var p3 = p2.catch(function (reason) {
     console.log('失败：'+reason);
+});
+*/
+new Promise(test).then(function(result){
+    console.log('success in: '+result);
+}).catch(function(reason){
+    console.log('fail in: '+reason);
 });
