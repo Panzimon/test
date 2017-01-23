@@ -85,3 +85,80 @@ For example
  最后调用send()方法才真正发送请求。GET请求不需要参数，
  POST请求需要把body部分以字符串或者FormData对象传进去
  */
+
+/*
+ 上面代码的URL使用的是相对路径。如果你把它改为
+ 'http://www.sina.com.cn/'，
+ 再运行，肯定报错。在Chrome的控制台里，还可以看到错误信息
+
+跨域了
+ */
+/*
+ 完全一致的意思是，域名要相同
+ （www.example.com和example.com不同），
+ 协议要相同（http和https不同），端口号要相同（默认是:80端口，
+ 它和:8080就不同）。
+ 有的浏览器口子松一点，允许端口不同，大多数浏览器都会严格遵守这个限制
+ */
+/*
+ 方法还是有的，大概有这么几种：
+
+ 一是通过Flash插件发送HTTP请求，
+ 这种方式可以绕过浏览器的安全限制，
+ 但必须安装Flash，并且跟Flash交互。
+ 不过Flash用起来麻烦，而且现在用得也越来越少了。
+
+
+ 二是通过在同源域名下架设一个代理服务器来转发，
+ JavaScript负责把请求发送到代理服务器：
+ '/proxy?url=http://www.sina.com.cn'
+ 代理服务器再把结果返回，这样就遵守了浏览器的同源策略。
+ 这种方式麻烦之处在于需要服务器端额外做开发。
+
+
+ 第三种方式称为JSONP，它有个限制，
+ 只能用GET请求，并且要求返回JavaScript。
+ 这种方式跨域实际上是利用了浏览器允许跨域引用JavaScript资源：
+
+ <html>
+ <head>
+ <script src="http://example.com/abc.js"></script>
+ ...
+ </head>
+ <body>
+ ...
+ </body>
+ </html>
+ JSONP通常以函数调用的形式返回，例如，返回JavaScript内容如下：
+
+ foo('data');
+ 这样一来，我们如果在页面中先准备好foo()函数，
+ 然后给页面动态加一个<script>节点，
+ 相当于动态读取外域的JavaScript资源，最后就等着接收回调了。
+
+ 以163的股票查询URL为例，对于URL：
+ http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice，你将得到如下返回：
+
+ refreshPrice({"0000001":{"code": "0000001", ... });
+ 因此我们需要首先在页面中准备好回调函数：
+
+ function refreshPrice(data) {
+ var p = document.getElementById('test-jsonp');
+ p.innerHTML = '当前价格：' +
+ data['0000001'].name +': ' +
+ data['0000001'].price + '；' +
+ data['1399001'].name + ': ' +
+ data['1399001'].price;
+ }
+ 最后用getPrice()函数触发：
+
+ function getPrice() {
+ var
+ js = document.createElement('script'),
+ head = document.getElementsByTagName('head')[0];
+ js.src = 'http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice';
+ head.appendChild(js);
+ }
+ 就完成了跨域加载数据
+
+ */
