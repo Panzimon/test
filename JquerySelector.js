@@ -30,3 +30,27 @@
  $("ul li").get(1).css("color", "red"); //这个是错误的
  $("ul li").eq(1).css("color", "red"); //这个是正确的
  */
+
+/*
+ 按属性查找还可以使用前缀查找或者后缀查找：
+
+ var icons = $('[name^=icon]');
+ // 找出所有name属性值以icon开头的DOM
+ // 例如: name="icon-1", name="icon-2"
+ var names = $('[name$=with]');
+ // 找出所有name属性值以with结尾的DOM
+ // 例如: name="startswith", name="endswith"
+ 这个方法尤其适合通过class属性查找，且不受class包含多个名称的影响：
+
+ var icons = $('[class^="icon-"]');
+ // 找出所有class包含至少一个以`icon-`开头的DOM
+ // 例如: class="icon-clock", class="abc icon-home"
+ */
+/*
+ 多项选择器就是把多个选择器用,组合起来一块选：
+
+ $('p,div');
+ // 把<p>和<div>都选出来
+ $('p.red,p.green');
+ // 把<p class="red">和<p class="green">都选出来
+ */
