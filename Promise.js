@@ -160,3 +160,30 @@ p.s.有bug，不断点run的话会不断加内容
  Got value: 128
  */
 
+//Promise简化ajax
+function ajax(method,url,data) {
+   'use strict'
+    let request = new XMLHttpRequest() || new ActiveXObject('Microsoft HTTP');
+   return new Promise(function (resolve,reject) {
+      request.onreadystatechange = function () {
+          if(request.status === 4 ){
+              if(request.status === 200){
+                  resolve(request.responseText);
+              }else{
+                  reject(request.status);
+              }
+          }
+      };
+       request.open(method,url);
+       request.send(data);
+   });
+}
+/*
+ var log = document.getElementById('test-promise-ajax-result');
+ var p = ajax('GET', '/api/categories');
+ p.then(function (text) { // 如果AJAX成功，获得响应内容
+ log.innerText = text;
+ }).catch(function (status) { // 如果AJAX失败，获得响应代码
+ log.innerText = 'ERROR: ' + status;
+ });
+ */
