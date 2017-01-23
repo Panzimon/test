@@ -106,6 +106,15 @@
  */
 //TODO
 /*
+ json = {};
+ var form = $("#test-form input,#test-form select");
+ form.each(function(){
+ json[$(this).attr('name')]=$(this).val();
+ })
+ json=JSON.stringify(json);
+ */
+//TODO
+/*
  json = $('#test-form p label')
  .find('select,input:checked,input:not([type=radio])')
  .map(function(){
