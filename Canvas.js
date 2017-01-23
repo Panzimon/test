@@ -46,3 +46,23 @@
  ctx.stroke(path);
 
  */
+/*
+ 输出文本，可以设置文本的字体、样式、阴影等，与CSS完全一致：
+
+ 'use strict';
+
+ var
+ canvas = document.getElementById('test-text-canvas'),
+ ctx = canvas.getContext('2d');
+
+ ctx.clearRect(0, 0, canvas.width, canvas.height);
+ ctx.shadowOffsetX = 1;
+ ctx.shadowOffsetY = 1;
+ ctx.shadowBlur = 3;
+ ctx.shadowColor = '#666666';
+ ctx.font = '26px Arial';
+ ctx.fillStyle = '#333333';
+ ctx.fillText('带阴影的文字', 50,50);
+
+
+ */
