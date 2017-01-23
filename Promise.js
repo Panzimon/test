@@ -194,7 +194,19 @@ var p1 = new Promise(function (resolve, reject) {
 var p2 = new Promise(function (resolve, reject) {
     setTimeout(resolve, 600, 'P2');
 });
-// 同时执行p1和p2，并在它们都完成后执行then:
+// 同时执行p1和p2，这两个任务是可以并行执行的,
+// 并在它们都完成后执行then:
 Promise.all([p1, p2]).then(function (results) {
     console.log(results); // 获得一个Array: ['P1', 'P2']
 });
+
+/*
+ 有些时候，多个异步任务是为了容错。
+ 比如，同时向两个URL读取用户的个人信息，
+ 只需要获得先返回的结果即可。这种情况下，用Promise.race()实现
+ */
+Promise.race([p1, p2]).then(function (result) {
+    console.log(result); // 'P1'
+});//由于p1执行较快，Promise的then()将获得结果'P1'。
+// p2仍在继续执行，但执行结果将被丢弃
+
