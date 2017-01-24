@@ -110,3 +110,52 @@
  插件函数要有默认值，绑定在$.fn.<pluginName>.defaults上；
  用户在调用时可传入设定值以便覆盖默认值。
  */
+/*
+ 现在我们要给所有指向外链的超链接加上跳转提示，怎么做？
+
+ 先写出用户调用的代码：
+
+ $('#main a').external();
+ 然后按照上面的方法编写一个external扩展：
+
+ $.fn.external = function () {
+ // return返回的each()返回结果，支持链式调用:
+ return this.filter('a').each(function () {
+ // 注意: each()内部的回调函数的this绑定为DOM本身!
+ var a = $(this);
+ var url = a.attr('href');
+ if (url && (url.indexOf('http://')===0 ||
+ url.indexOf('https://')===0)) {
+ a.attr('href', '#0')
+ .removeAttr('target')
+ .append(' <i class="uk-icon-external-link"></i>')
+ .click(function () {
+ if(confirm('你确定要前往' + url + '？')) {
+ window.open(url);
+ }
+ });
+ }
+ });
+ }
+ */
+
+/*todo 大神优化
+
+ $.fn.external = function () {
+ return this.filter('a').each(function () {
+ var a = $(this);
+ var url = a.attr('href');
+ if (url && (url.indexOf('http://') === 0 ||
+  url.indexOf('https://') === 0 ||
+   url.indexOf('/wiki/') === 0)) {
+ a.append(' <i class="uk-icon-external-link"></i>')
+ .click(function (e) {
+ e.preventDefault();
+ if (confirm('确定前往' + url + "页面?")) {
+ window.open(url)
+ }
+ })
+ }
+ })
+ }
+ */
