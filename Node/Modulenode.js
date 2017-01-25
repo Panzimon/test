@@ -6,3 +6,8 @@
  因此，我们自己在编写模块时，不必考虑名字会与其他模块冲突
  */
 
+var greet = require('./hellotest');
+
+var s = 'Micheal';
+
+greet(s);
