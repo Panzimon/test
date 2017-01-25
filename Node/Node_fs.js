@@ -166,3 +166,86 @@ fs.stat('sample.txt',function (err,stat) {
  可以使用同步代码，因为这些代码只在启动和结束时执行一次，
  不影响服务器正常运行时的异步执行。
  */
+
+/*
+//todo quesion
+ 'use strict';
+
+ var fs = require('fs');
+
+ var buf = fs.readFile('sample.txt',
+  function (err, data) {
+ if (err) {
+ console.log(err);
+ } else {
+ return data;
+ }
+ });
+
+ console.log(buf instanceof Buffer);
+ //这里结果竟然是false?这是怎么回事啊？
+
+//todo answer
+
+ 不能这么写, 如果需要使用返回值可以使用同步形式
+
+ console.log(buf instanceof Buffer)
+ 这里buf不是Buffer应该是undefined.
+ 因为读取文件是一个异步操作,
+ js会等同步操作执行完毕才开始执行异步操作, 所以是false.
+
+ 还有就是
+
+ return data;
+ 这里不能返回到给buf, 因为它是一个回调函数
+ */
+
+/*
+ writeFile写入的时候会先把文件清空，再写入，有没有方法不清空直接写
+ */
+/*
+ open('file', 'a')
+ 模式为a意思是append（追加）
+ */
+/*//todo 使用同步的方法获取文件信息
+ //1. 加载fs模块
+ var fs = require('fs');
+
+ //2. 指定要访问的文件路径
+ var filePath = "sample.txt";
+ var dicPath = "testDir";
+
+ var fileInfo;
+
+ fileInfo = fs.statSync(filePath);
+ if (fileInfo.isFile()) {
+ console.log(fileInfo.isFile() + "是一个文件路径");
+ console.log("文件大小：" + fileInfo.size);
+ console.log("文件创建时间：" + fileInfo.birthtime);
+ console.log("文件最后修改时间: " + fileInfo.mtime);
+ } else if (fileInfo.isDirectory()) {
+ // 是否是目录:
+ console.log(fileInfo.isFile() + "是一个文件夹路径");
+ console.log("文件夹大小：" + fileInfo.size);
+ console.log("文件夹创建时间：" + fileInfo.birthtime);
+ console.log("文件夹最后修改时间: " + fileInfo.mtime);
+ } else {
+ console.log("输入的路径不是文件也不是文件夹");
+ }
+
+ fileInfo = fs.statSync(dicPath);
+ if (fileInfo.isFile()) {
+ console.log(fileInfo.isFile() + "是一个文件路径");
+ console.log("文件大小：" + fileInfo.size);
+ console.log("文件创建时间：" + fileInfo.birthtime);
+ console.log("文件最后修改时间: " + fileInfo.mtime);
+ } else if (fileInfo.isDirectory()) {
+ // 是否是目录:
+ console.log(fileInfo.isFile() + "是一个文件夹路径");
+ console.log("文件夹大小：" + fileInfo.size);
+ console.log("文件夹创建时间：" + fileInfo.birthtime);
+ console.log("文件夹最后修改时间: " + fileInfo.mtime);
+ } else {
+ console.log("输入的路径不是文件也不是文件夹");
+ }
+ */
