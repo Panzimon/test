@@ -3,8 +3,14 @@
  */
 var fs =require( 'fs');
 var rs = fs.createReadStream('sample.txt','utf-8');
-rs.on('data',function (chunk) {
-    console.log('DATA: ');
+rs.on('data', function (chunk) {
+    console.log('DATA 1:')
+    console.log(chunk);
+});
+
+
+rs.on('data', function (chunk) {
+    console.log('DATA 2:')
     console.log(chunk);
 });
 rs.on('end',function () {
