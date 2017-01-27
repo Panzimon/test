@@ -115,8 +115,6 @@ console.log('Server is running at http://127.0.0.1:8050/');
  console.log('Server is running at http://127.0.0.1:8080/');
 
  todo 大神答案2
- 'use strict';
-
  var
  fs = require('fs'),
  url = require('url'),
