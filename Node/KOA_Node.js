@@ -1,37 +1,7 @@
 /**
  * Created by ZY on 2017/1/28.
  */
-var express = require('express');
-var app = express();
 
-app.get('/',function (req,res) {
-    res.send('Hello World ! ');
-});
-
-app.listen(8050,function () {
-    console.log('Example app listening on port 8050 ~');
-});
-
-/*
- 虽然Express的API很简单，但是它是基于ES5的语法，要实现异步代码，
- 只有一个方法：回调。如果异步嵌套层次过多，代码写起来就非常难看
- */
-
-app.get('/test',function(req,res){
-    "use strict";
-   fs.readFile('file1',function (err,data) {
-       if(err){
-           res.status(500).send('read file1 error');
-       }
-       fs.readFile('/file2',function(err,data){
-           if(err){
-               res.status(500).send('read file2 error');
-           }
-           res.type('text/plain');
-           res.send(data);
-       });
-   });
-});
 //虽然可以用async这样的库来组织异步代码，
 // 但是用回调写异步实在是太痛苦了！
 // p.s.其实我觉得还好=。=
@@ -83,7 +53,7 @@ app.get('/test',function(req,res){
  `-- vary@1.1.0
 
  */
-
+/*
 const koa = require('koa'),
     app = koa();
 
@@ -93,4 +63,30 @@ app.use('/test',function* () {
    this.body = data;
 });
 
-app.listen(3000);
+app.listen(3000);*/
+/*
+ 为了简化异步代码，
+ ES7（目前是草案，还没有发布）引入了新的关键字async和await，
+ 可以轻松地把一个function变为异步模式：
+ async function () {
+ var data = await fs.read('/file1');
+ }
+ */
+/*
+ 他们非常超前地基于ES7开发了koa2，
+ 和koa 1相比，koa2完全使用Promise并配合async来实现异步
+ */
+
+/*
+ koa2的代码看上去像这样：
+
+ app.use(async (ctx, next) => {
+ await next();
+ var data = await doReadFile();
+ ctx.response.type = 'text/plain';
+ ctx.response.body = data;
+ });
+
+ 出于兼容性考虑，
+ 目前koa 2仍支持generator的写法，但下一个版本将会去掉。
+ */
