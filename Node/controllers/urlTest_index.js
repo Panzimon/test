@@ -25,5 +25,5 @@ var fn_signin = async (ctx, next) => {
 
 module.exports = {
   'GET /': fn_index,
-    'POST /signin': fn_signin()
-};
+    'POST /signin': fn_signin
+};//不要多手加括号！！！
