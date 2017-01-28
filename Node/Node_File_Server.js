@@ -174,4 +174,49 @@ console.log('Server is running at http://127.0.0.1:8050/');
  }
 
  server.listen(8080);
+ todo 大神答案3
+
+ const server = http.createServer((request, response) => {
+ const pathname = url.parse(request.url).pathname
+ const filepath = path.join(root, pathname)
+
+ fs.stat(filepath, (err, stats) => {
+ if (!err) {
+ if (stats.isFile()) {
+ console.log('200 ' + request.url);
+ success(filepath, response)
+ } else if (stats.isDirectory()) {
+ fs.stat(filepath + 'index.html', function (err, stats) {
+ if (!err) {
+ console.log('200 ' + request.url);
+ success(filepath + 'index.html', response)
+ } else {
+ fs.stat(filepath + 'default.html', function (err, stats) {
+ if (!err) {
+ console.log('200 ' + request.url);
+ success(filepath + 'default.html', response)
+ } else {
+ console.log(`404 ${request.url}`);
+ fail()
+ }
+ })
+ }
+ })
+ }
+ } else {
+ console.log(`404 ${request.url}`);
+ fail()
+ }
+ })
+ })
+
+ function success(filepath, response) {
+ response.writeHead(200)
+ fs.createReadStream(filepath).pipe(response)
+ }
+
+ function fail() {
+ response.writeHead(404)
+ response.end('404 Not Found')
+ }
  */
