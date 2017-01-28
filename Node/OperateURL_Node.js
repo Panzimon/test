@@ -110,3 +110,34 @@ console.log('app started at port 3000...');
  "koa-bodyparser": "3.2.0"
  */
 
+/*
+ 所有的URL处理函数都放到app.js里显得很乱，
+ 而且，每加一个URL，就需要修改app.js。
+ 随着URL越来越多，app.js就会越来越长。
+
+ 如果能把URL处理函数集中到某个js文件，
+ 或者某几个js文件中就好了，
+ 然后让app.js自动导入所有处理URL的函数。
+ 这样，代码一分离，逻辑就显得清楚了。最好是这样：
+
+ url2-koa/
+ |
+ +- .vscode/
+ |  |
+ |  +- launch.json <-- VSCode 配置文件
+ |
+ +- controllers/
+ |  |
+ |  +- login.js <-- 处理login相关URL
+ |  |
+ |  +- users.js <-- 处理用户管理相关URL
+ |
+ +- app.js <-- 使用koa的js
+ |
+ +- start.js <-- 启动入口js
+ |
+ +- package.json <-- 项目描述文件
+ |
+ +- node_modules/ <-- npm安装的所有依赖包
+ */
+

@@ -7,7 +7,9 @@ register({
    presets:['stage-3']
 });
 
-require('./OperateURL_Node.js');//require('./koa_Start.js');
+//require('./koa_Start.js');
+//require('./OperateURL_Node.js');
+require('./urlTest_app.js');
 /*
  npm install
  koa2@1.0.0 C:\Users\**\Desktop\Note~\test\Node
