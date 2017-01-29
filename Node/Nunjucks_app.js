@@ -40,3 +40,6 @@ var env = createEnv('views',{
  它有一个render(view, model)方法，
  正好传入view和model两个参数，并返回字符串。
  */
+
+var s = env.render('Nunjucks_Hello.html', { name: '小明' });
+console.log(s);
