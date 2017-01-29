@@ -43,6 +43,21 @@ var env = createEnv('views',{
  它有一个render(view, model)方法，
  正好传入view和model两个参数，并返回字符串。
  */
-
+/*
 var s = env.render('Nunjucks_Hello.html', { name: '小明' });
+console.log(s);*/
+
+//咋一看，这和使用JavaScript模板字符串没啥区别嘛。不过，试试：
+
+var s = env.render('Nunjucks_Hello.html',
+    { name: '<script>alert("小明")</script>' });
 console.log(s);
+//<h1>Hello, &lt;script&gt;
+// alert(&quot;小明&quot;)&lt;/script&gt; ~</h1>
+// 这样就避免了输出恶意脚本
+
+//对子模板进行渲染
+console.log(env.render('Nunjucks_childModule.html', {
+    header: 'Hello',
+    body: 'bla bla bla...'
+}));
