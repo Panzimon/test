@@ -67,5 +67,23 @@ examResult({
  */
 
 /*
+ 如果你使用过Python的模板引擎jinja2，
+ 那么使用Nunjucks就非常简单，两者的语法几乎是一模一样的，
+ 因为Nunjucks就是用JavaScript重新实现了jinjia2
+ */
+
+/*
+ 虽然模板引擎内部可能非常复杂，但是使用一个模板引擎是非常简单的，因为本质上我们只需要构造这样一个函数：
+
+ function render(view, model) {
+ // TODO:...
+ }
+ 其中，view是模板的名称（又称为视图），
+ 因为可能存在多个模板，需要选择其中一个。
+ model就是数据，在JavaScript中，
+ 它就是一个简单的Object。render函数返回一个字符串，就是模板的输出
+ */
+
+/*
 
  */

@@ -1,7 +1,7 @@
 {
   "name": "koa2",
   "version": "1.0.0",
-  "description": "Hello Koa 2 example with async",
+  "description": "Nunjunks",
   "main": "start.js",
   "scripts": {
     "start": "node start.js"
@@ -23,6 +23,7 @@
     "babel-preset-stage-3": "6.5.0",
     "koa": "2.0.0",
     "koa-router": "7.0.0",
-    "koa-bodyparser": "3.2.0"
+    "koa-bodyparser": "3.2.0",
+    "nunjucks": "2.4.2"
   }
 }
