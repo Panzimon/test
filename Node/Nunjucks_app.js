@@ -6,22 +6,25 @@ const nunjucks = require('nunjucks');
 
 function createEnv(path,opts) {
     var
-        autoscape = opts.autoscape && true ,
+        autoescape = opts.autoescape && true ,//autoescape...
         noCache = opts.noCache || false ,
         watch = opts.watch || false ,
-        throwOnUnderfined = opts.throwOnUndefined || false ,
+        throwOnUndefined = opts.throwOnUndefined || false ,
+        //不是throwOnUnderfined
         env = new nunjucks.Environment(
-            new nunjucks.FileSystemLoader('views',{
+            new nunjucks.FileSystemLoader(path,{
             noCache: noCache,
                 watch: watch,
             }),{
-            autoscape: autoscape,
-                throwOnUnderfined: throwOnUnderfined
+            autoescape: autoescape,
+                throwOnUndefined: throwOnUndefined
+                //卧槽。。。别再拼错了。。。。
             }
         );
     if(opts.filters){
         for(var f in opts.filters){
-            env.addFilter(f,opts.filter[f]);
+            env.addFilter(f , opts.filters[f]);
+            //大哥。。专心点。。别漏加S
         }
     }
     return env;
