@@ -9,7 +9,8 @@ register({
 
 //require('./koa_Start.js');
 //require('./OperateURL_Node.js');
-require('./urlTest_app.js');
+//require('./urlTest_app.js');
+require('./View-koa_app.js');
 /*
  npm install
  koa2@1.0.0 C:\Users\**\Desktop\Note~\test\Node

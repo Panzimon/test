@@ -4,7 +4,7 @@
 const
     Koa = require('koa'),
     bodyParser = require('koa-bodyparser'),
-    controller = require('./urlTest_Controller'),
+    controller = require('./Controller'),
     app = new Koa();
 
 app.use(async (ctx,next)=>{
@@ -14,7 +14,7 @@ app.use(async (ctx,next)=>{
     await next();
 });
 app.use(bodyParser());
-app.use(controller());
+app.use(controller('urlTest_controllers'));
 app.listen(3000);
 console.log('app started at port 3000...');
 /*
