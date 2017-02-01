@@ -83,3 +83,46 @@
  如果是测试环境，就读取config-test.js。
  */
 
+/*
+ 一旦Model多了起来，如何引用也是一件麻烦事。
+
+ 自动化永远比手工做效率高，而且更可靠
+ */
+
+/*
+=工程结构
+
+ 最终，我们创建的工程model-sequelize结构如下：
+
+ model-sequelize/
+ |
+ +- .vscode/
+ |  |
+ |  +- launch.json <-- VSCode 配置文件
+ |
+ +- models/ <-- 存放所有Model
+ |  |
+ |  +- Pet.js <-- Pet
+ |  |
+ |  +- User.js <-- User
+ |
+ +- config.js <-- 配置文件入口
+ |
+ +- config-default.js <-- 默认配置文件
+ |
+ +- config-test.js <-- 测试配置文件
+ |
+ +- db.js <-- 如何定义Model
+ |
+ +- model.js <-- 如何导入Model
+ |
+ +- init-db.js <-- 初始化数据库
+ |
+ +- app.js <-- 业务代码
+ |
+ +- start.js <-- 启动入口js
+ |
+ +- package.json <-- 项目描述文件
+ |
+ +- node_modules/ <-- npm安装的所有依赖包
+ */
