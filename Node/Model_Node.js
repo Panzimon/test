@@ -138,5 +138,15 @@
 
  var pet = await Pet.create({ ... });
  */
+/*
+
+ create database nodejs;
+
+ grant all privileges
+ on nodejs.* to 'www'@'%' identified by 'www';
+ grant all privileges
+ on test.* to 'www'@'%' identified by 'www';
+
+ */
 
 //https://github.com/michaelliao/learn-javascript/tree/master/samples/node/web/db/model-sequelize

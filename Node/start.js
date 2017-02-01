@@ -11,7 +11,8 @@ register({
 //require('./OperateURL_Node.js');
 //require('./urlTest_app.js');
 //require('./View-koa_app.js');
-require('./Sequelize_app.js');
+//require('./Sequelize_app.js');
+require('./Model_app.js');
 /*
  npm install
  koa2@1.0.0 C:\Users\**\Desktop\Note~\test\Node
