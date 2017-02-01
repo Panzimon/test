@@ -126,3 +126,17 @@
  |
  +- node_modules/ <-- npm安装的所有依赖包
  */
+
+/*
+ 每个 控制器都引入这段代码
+
+ const model = require('./model');
+
+ let
+ Pet = model.Pet,
+ User = model.User;
+
+ var pet = await Pet.create({ ... });
+ */
+
+//https://github.com/michaelliao/learn-javascript/tree/master/samples/node/web/db/model-sequelize
