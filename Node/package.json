@@ -29,5 +29,8 @@
     "mz": "2.4.0",
     "sequelize": "3.24.1",
     "mysql": "2.11.1"
+  },
+  "devDependencies": {
+    "mocha": "3.0.2"
   }
 }
