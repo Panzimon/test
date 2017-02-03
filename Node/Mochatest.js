@@ -1,7 +1,7 @@
 /**
  * Created by ZY on 2017/2/3.
  */
-const seert = require('assert');
+const assert = require('assert');
 const sum = require('./Mochahello');
 
 assert.strictEqual(sum(),0);
