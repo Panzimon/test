@@ -14,7 +14,8 @@ register({
 //require('./Sequelize_app.js');
 //require('./Model_app.js');
 //require('./Websocket-app.js');
-require('./REST_app.js');
+//require('./REST_app.js');
+require('./MVVM_app.js');
 /*
  npm install
  koa2@1.0.0 C:\Users\**\Desktop\Note~\test\Node
