@@ -94,6 +94,15 @@
  所以，上述代码可以正确更新View。
  */
 
-/*
+/*todo 大神tips
 
+ vue与jQuery尽可能不要混用
+
+ 通过jQuery动态插入的元素没法正确vue初始化。
+
+ 考虑到vue的初始化发生在页面DOM初始化后，也就是如果jQuery的插入元素不是在页面加载时加入进来的话，vue是无法初始化成功的。
+
+ 比如用jQuery或原生js对一个元素添加v-for或者v-test之类的属性。
+
+ 还有{{}}语法，vue和jinja2/nonjects也会起冲突。最好约束写法。
  */
