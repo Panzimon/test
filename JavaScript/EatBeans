@@ -1,0 +1,9 @@
+function positionBody(event){
+
+    event = event||window.event;
+    //获得相对于body定位的横标值；
+
+    x=event.clientX
+    //获得相对于body定位的纵标值；
+    y=event.clientY
+}
