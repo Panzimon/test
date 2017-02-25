@@ -1,8 +1,6 @@
 <template>
-	<div>
 		<raw-editor></raw-editor>
 		<render-editor></render-editor>
-	</div>
 </template>
 
 <script>

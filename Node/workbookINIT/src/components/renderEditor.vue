@@ -1,6 +1,6 @@
 <template>
 	<div id="render-editor">
-		{{renderHtml}}
+		{{{renderHtml}}}
 	</div>
 </template>
 

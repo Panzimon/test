@@ -30,3 +30,6 @@ actions.js 还记得vuex核心思想的那张数据流图，
 剩下更新state的工作交给mutations
 
 吃了shit一般啊，强行降低Vue-router,Vuex,Vue,之类的全部版本，页面算是出来了一点样子，但是Markdown风格都没有转义回去。。。
+
+可以,之前用Vue2.0 {{{}}} 这个东西报错就删了一个{}，结果尼玛就是这个导致的Markdown bug
+...
