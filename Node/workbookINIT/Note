@@ -29,4 +29,4 @@ actions.js 还记得vuex核心思想的那张数据流图，
 还有上面我描述src的完成状态的关于 vuex里面各文件的意义所在，actions.js 说白了，就是处理玩rawHtml之后，dispatch 结果到 mutations，
 剩下更新state的工作交给mutations
 
-唉~
+吃了shit一般啊，强行降低Vue-router,Vuex,Vue,之类的全部版本，页面算是出来了一点样子，但是Markdown风格都没有转义回去。。。
