@@ -1,0 +1,31 @@
+npm install -D vue-router vuex marked highlight.js
+// -D 和 --save-dev 等效，marked是markdown 语法转换工具库
+
+
+├── App.vue //初始化工作，以及挂载路由的router-view组件
+├── assets //静态资源文件
+│   └── darkness.css //暗黑风stylesheet
+├── components  //组件放在这儿
+│   ├── rawEditor.vue //markdown 文本编辑器组件
+│   └── renderEditor.vue //渲染后的展示组件
+├── main.js //入口程序
+├── router.js //SPA 路由配置文件
+├── views //页面
+│   ├── 404.vue // 除'/'以外的非法路由，一律指向404
+│   └── index.vue // '/'路由指向页面，内含 rawEditor.vue & renderEditor.vue
+└── vuex
+    ├── actions.js //vuex理念中 actions -> dispatch
+    ├── getters.js //vuex 理念中 Getters Can Return Derived State，简言之，组建里面的状态都通过getters来获取
+    └── store.js //vuex 理念中 initial state,mutations，相应dispatch－》mutations－》从而完成对state的更新
+
+
+rawHtml 和renderHtml，简简单单的两个state，就能够满足我们的应用需求。
+
+rawHtml 和renderHtml之间又有什么关系呢?
+rawHtml经过转换之后给renderHtml赋值
+
+
+actions.js 还记得vuex核心思想的那张数据流图，
+还有上面我描述src的完成状态的关于 vuex里面各文件的意义所在，actions.js 说白了，就是处理玩rawHtml之后，dispatch 结果到 mutations，
+剩下更新state的工作交给mutations
+
