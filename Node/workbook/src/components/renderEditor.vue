@@ -1,7 +1,8 @@
 
 <template>
-  <div id="render-editor">
-    {{{getRenderHtml}}}
+  <div
+       id="render-editor"
+       v-html="getRenderHtml">
   </div>
 </template>
 

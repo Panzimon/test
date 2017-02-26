@@ -3,10 +3,12 @@
  */
 
 import VueRouter from 'vue-router'
+import index from './views/index'
+import err from './views/404'
 
 export const router = new VueRouter({
   routes: [
-    { path: '/', component: require('./views/index.vue') },
-    { path: '*', component: require('./views/404.vue') }
+    { path: '/', component: index },
+    { path: '*', component: err }
   ]
 });
