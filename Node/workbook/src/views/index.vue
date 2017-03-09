@@ -1,7 +1,9 @@
 
 <template>
-  <raw-editor></raw-editor>
-  <render-editor></render-editor>
+  <div id="main">
+    <raw-editor></raw-editor>
+    <render-editor></render-editor>
+  </div>
 </template>
 
 <script>
@@ -16,3 +18,9 @@
   }
 
 </script>
+<style>
+  #main {
+    width: 100%;
+    height: 100%;
+  }
+</style>

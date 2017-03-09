@@ -2,7 +2,7 @@
 <template>
   <div
        id="render-editor"
-       v-html="getRenderHtml">
+       v-html="renderHtml">
   </div>
 </template>
 
@@ -11,9 +11,9 @@
   import { mapGetters } from 'vuex'
 
   export default {
-    computed: mapGetters([
-      'getRenderHtml'
-    ])
+    computed: mapGetters({
+      renderHtml: 'getRenderHtml'
+    })
   }
 
 </script>
@@ -23,6 +23,6 @@
     float:right;
     width:50%;
     height:100%;
-    overflow: scroll;
+    overflow: hidden;
   }
 </style>

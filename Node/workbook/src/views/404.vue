@@ -1,6 +1,6 @@
 <template>
   <div id="404">
-  <img src="./assets/logo.png">
+  <img src="../assets/logo.png">
   <h1>404 Not Found</h1>
   </div>
 </template>
