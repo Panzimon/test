@@ -1,11 +1,11 @@
 import Vue from 'vue'
-//import axios from 'axios'
+import axios from 'axios'
 import VueResource from 'vue-resource'
 import App from './App.vue'
 
-Vue.use(VueResource);
-//Vue.use(axios);
-//Vue.prototype.$http = axios;
+//Vue.use(VueResource);
+Vue.use(axios);
+Vue.prototype.$http = axios;
 
 new Vue({
   el: '#app',

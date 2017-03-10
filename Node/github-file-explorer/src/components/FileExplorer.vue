@@ -40,16 +40,6 @@
             }
         },
         methods: {
-            /*getFiles: function() {
-                this.$http.get('https://api.github.com/repos/' + this.fullRepoUrl + '/contents' + this.path)
-                    .then(function(res) {
-                        this.files = res.data;
-                    }).catch(function (error) {
-                    console.log(error);
-                });
-            }
-            真的不知道怎么用axios。。。
-            */
             /*
             getFiles: function() {
              this.$http.get('https://api.github.com/repos/' + this.fullRepoUrl + '/contents' + this.path,
@@ -62,13 +52,21 @@
              改了api，我提莫德不知道！！！
              搞得我懵逼了5个小时。。。
              */
-            getFiles: function() {
+            /*getFiles: function() {
                 this.$http.get('https://api.github.com/repos/' + this.fullRepoUrl + '/contents' + this.path)
                     .then( res => {
                         this.files = res.body;
                     }, res =>{
                     console.log('gg思密达~')
-                });//^1.2.0
+                });//^1.2.0 成功~
+            }*/
+            getFiles: function() {
+                this.$http.get('https://api.github.com/repos/' + this.fullRepoUrl + '/contents' + this.path)
+                    .then( res => {
+                        this.files = res.data;
+                    }).catch( err =>{
+                        console.log(err + 'gg思密达~')
+                    });//axios 成功~
             },
             changePath: function(path) {
                 this.path = '/' + path;
