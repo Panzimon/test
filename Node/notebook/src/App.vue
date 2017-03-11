@@ -141,20 +141,185 @@ export default {
       closeCollapse(num,event){
           const ulElement = event.currentTarget.nextElementSibling;
           ulElement.style.height = ulElement.offsetHeight + 'px';
-
+          this.collapse[num].contentHeight = ulElement.offsetHeight;
+          setTimeout(function () {
+            ulElement.style.height = '0px';
+            setTimeout(function () {
+              ulElement.style.display = 'none';
+            },300)
+          },10)
+        },
+      openCollapse(num,event){
+        const ulElement = event.currentTarget.nextElementSibling,
+          self = this;
+        ulElement.style.display = 'block';
+        setTimeout(function () {
+          ulElement.style.height = self.collapse[num].contentHeight + 'px';
+          setTimeout(function () {
+            ulElement.style.height = 'auto';
+          },300)
+        },10)
+      },
+      clearData(){
+        this.dialog = true;
+        this.dialog_type = 'clear';
+        this.tips = '清空后无法恢复，确认清空吗？';
+      },
+      delData(index,id){
+        this.dialog = true;
+        this.dialog_type = 'del';
+        this.tips = '删除后无法恢复，确认删除吗？';
+        this.del_info = {
+          index: index,
+          id : id
+        }
+      },
+      sureDialog(){
+        const self = this;
+        switch (self.dialog_type){
+          case 'clear':
+            self.$store.dispatch('clearevent');
+            break;
+          case 'del':
+            self.$store.dispatch('delevent',self.del_info);
+            break;
+        }
+        this.dialog = false;
+      },
+      changePages(){
+        if(this.table){
+          this.table = !this.table;
+        }else{
+          this.tools = !this.tools
+        }
       }
+    }
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" rel="stylesheet/scss">
+  html,body,ul,li,input{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    font-size: 16px;
+    font-family: "Helvetica Neue", Helvetica, "microsoft yahei", arial, STHeiTi, sans-serif;
+  }
+  input,button{
+    -webkit-tap-highlight-color: transparent;
+    -ms-scrollbar-highlight-color: transparent;
+  }
+  input[type=text]{
+    -webkit-appearance: none;
+  }
+  button{
+    padding:7px 0;
+    outline: none;
+    text-align: center;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font:{
+      size: inherit;
+      family: inherit;
+    }
+    cursor: pointer;
+  }
+  body,#app{
+    width:100%;
+    overflow-x: hidden;
+  }
+  ul{
+    list-style: none;
+  }
+  .container{
+    width:100%;
+    padding: 0 10px;
+    max-width:800px;
+    margin:auto;
+    box-sizing: border-box;
+    &.hide{
+      display: none;
+    }
+  }
+  .event-content{
+    .event-tab{
+      position: relative;
+      height:44px;
+      line-height: 44px;
+      padding-left:20px;
+      border-bottom:1px solid #fff;
+      box-sizing: border-box;
+      color: #fff;
+      cursor: pointer;
+      background: #00a2ff;
+      span{
+        position: absolute;
+        right:20px;
+        top:15px;
+        width:10px;
+        height:10px;
+        content: '';
+        border:{
+          top: 3px solid #fff;
+          right: 3px solid #fff;
+        }
+        transform: rotate(135deg);
+        transition: transform .3s;
+        &.close-span{
+          transform: rotate(45deg);
+        }
+      }
+    }
+    ul.event-box{
+      list-style: none;
+      overflow: hidden;
+      border:{
+        left:1px solid #eee;
+        right:1px solid #eee;
+      }
+      transition: height .3s;
+      .event-list{
+        position: relative;
+        min-height:44px;
+        line-height: 25px;
+        padding:10px 100px 10px 50px;
+        box-sizing: border-box;
+        border-bottom: 1px solid #eee;
+        input[type=checkbox]{
+          position: absolute;
+          left:15px;
+          top:12px;
+          width:20px;
+          height:20px;
+        }
+        .cancel-btn{
+          position: absolute;
+          right:10px;
+          top:7px;
+          width:50px;
+          height:30px;
+          line-height: 30px;
+          padding:0;
+          background: #fff;
+          border: 1px solid #c0ccda;
+          color: #1f2d3d;
+          font-size:12px;
+        }
+        .event-time{
+          position: absolute;
+          right: 10px;
+          top:0;
+          line-height:44px;
+          font-size: 12px;
+          color: #aaa;
+        }
+        .event-delete{
+          text-decoration: line-through;
+          color: #999;
 
+        }
+      }
+    }
+  }
 </style>
