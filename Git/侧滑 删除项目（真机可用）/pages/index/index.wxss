@@ -1,0 +1,35 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+  width: 100%;
+}
+
+.user-motto {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #95aee9;
+  background: linear-gradient(30deg, #fff 0%, #fff 25%, #e9d6d0 40%, #e9c897 60%, #fff 75%, #fff 100%), #fff;
+  background: -webkit-linear-gradient(180deg, #fff 0%, #fff 25%, #e9d6d0 40%, #e9c897 60%, #fff 75%, #fff 100%), #fff;
+  /*border: 1px solid #e92366;*/
+}

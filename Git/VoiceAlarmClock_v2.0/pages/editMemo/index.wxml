@@ -1,0 +1,7 @@
+<view class="wrapp">
+        <include src="../public/add&editMemo.wxml"/>
+         <view class="footer">
+             <view bindtap="back" class="foot" style="padding:40rpx 0">取消</view>
+             <view bindtap="save" class="foot" style="padding:40rpx 0" data-id="{{id}}" >保存</view>
+         </view>
+</view>

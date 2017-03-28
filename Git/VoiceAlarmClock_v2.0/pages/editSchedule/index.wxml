@@ -1,0 +1,7 @@
+<view class="wrapp">
+        <include src="../public/add&editSchedule.wxml"/>
+        <view class="footer">
+             <view bindtap="back" class="foot">取消</view>
+             <view bindtap="save" class="foot" data-id="{{id}}" >保存</view>
+        </view>
+</view>

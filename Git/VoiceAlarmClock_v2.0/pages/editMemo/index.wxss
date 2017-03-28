@@ -1,0 +1,3 @@
+/**index.wxss**/
+@import "../addMemo/index.wxss";
+

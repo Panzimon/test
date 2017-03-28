@@ -1,0 +1,53 @@
+<view class="wrapper">
+  <view class="rl">
+        <view class="time">
+            <view class="year">{{year}}</view>
+            <view class="month">{{month}}</view>
+            <view class="day">{{day}}th</view>
+        </view>
+  </view>
+
+  <view class="table" >
+   <view class="year_month">{{year_month}}</view>
+    <block wx:for="{{sevenDay}}">
+        <view class="day_week" bindtap="doActive" data-index="{{index}}" >   
+            <view class="dw">{{item.week}}</view>
+            <view class="dw">
+                <view class="{{item.class}}">{{item.day}}</view>
+            </view>
+        </view>
+    </block >
+  </view>
+
+  <view class="border"></view>
+   <scroll-view class="logbox" wx:if="{{log!=''}}" scroll-y="true">
+       <block wx:for="{{log}}">
+        <view  class="log" hidden="{{item.delet}}">
+           <view class="logLeft" bindtap="forEdit"  
+                data-time="{{item.allTime}}"  
+                data-thing="{{item.thing}}"  
+                data-id="{{item.id}}" 
+                data-remind_repeat="{{item.remind_repeat}}" 
+                data-advance_notice="{{item.advance_notice}}" 
+                data-laber="{{item.laber}}">
+                <view class="log_leftO">{{item.thing}}</view>
+                <view class="log_leftT">{{item.time}}</view>
+           </view>
+           <view class="logRight" data-id="{{item.id}}" 
+                data-time="{{item.allTime}}"  
+                data-index="{{index}}"
+                bindtap="delet">
+                <image 
+                class="icon"
+                src="{{delet_icon}}"></image>
+           </view>
+        </view>
+    </block >
+   </scroll-view>
+   <view class="logbox0" wx:if="{{log==''}}">
+            <image class="nullImg" mode="widthFix" src="{{nullImg}}"></image>
+            <view class="nullColor">您还没有添加相应的日程</view>
+            <view class="nullColor">点击新建添加日程</view>
+   </view>
+   <include src="../public/footer/index.wxml"/>
+</view>

@@ -1,0 +1,21 @@
+{
+  "pages":[
+    
+    "pages/listSchedule/index",
+    "pages/listMemo/index",
+    "pages/startVoice/index",
+    "pages/addMemo/index",
+    "pages/editMemo/index",
+    
+    
+    "pages/public/footer/index",
+    "pages/addSchedule/index",
+    "pages/editSchedule/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"white"
+  }
+}

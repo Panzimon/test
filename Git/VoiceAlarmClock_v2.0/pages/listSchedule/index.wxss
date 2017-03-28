@@ -1,0 +1,31 @@
+/**index.wxss**/
+@import "../public/footer/index.wxss";
+@import "../public/public.wxss";
+.wrapper{overflow: hidden}
+.year_month{color:#1aad19; font-weight:800; margin-bottom: 26rpx; font-size: 40rpx }
+
+
+.table{width: 90%;overflow: hidden ; margin: auto;margin-top:30rpx }
+.day_week{float: left; width: 14%; text-align: center;   }
+.dw{width: 100%;  }
+
+.normal{ width: 80rpx ; line-height: 80rpx; margin: auto}
+.active{border: 2rpx solid #1aad19;  border-radius:50% ;    width: 80rpx ; line-height: 80rpx;  margin: auto }
+
+.logbox{width: 90%;  margin: auto; margin-top:20rpx; height:480rpx }
+.logbox0{width: 100%; overflow: hidden ; height: 1000rpx; margin: auto;background-color: #fcf9fe; text-align: center; padding-top: 100rpx}
+.log{border-bottom:1rpx solid #b4b5b4; line-height: 80rpx; display: flex; justify-content: space-between;  align-items: center; padding: 10rpx 0 }
+
+.logLeft{width: 80%}
+.log_leftT{line-height: 40rpx; padding: 0;  font-size: 30rpx; }
+.logRight{width: 20%; text-align: right}
+.log:last-child{border: none}
+.log_leftO{width: 100%;  line-height: 50rpx; color: #2e2e2e; 
+           overflow: hidden; 
+           text-overflow: ellipsis; white-space: nowrap;}
+.icon{width: 34rpx; height: 34rpx}
+
+
+.border{background-color: #fcf9fe; border-top:#d2d1d3 solid 1rpx ; height: 10rpx; margin-top: 40rpx}
+.nullImg{width: 200rpx; }
+.nullColor{color:#D9D5D9 }

@@ -1,0 +1,25 @@
+<view class="wrapp"> 
+    <view class="tip">
+        长按语音说出你的内容
+    </view>
+    <view class="tip0">
+        <text class="green">提醒</text>我9点到11点开会
+    </view>
+    <view class="tip0">
+       提醒我明天6点4<text class="green">起床</text>
+    </view>
+    <view class="status"> 
+        <text class="{{status}}"> 解析失败，请再说一次！ </text>
+    </view>
+    <view class="voiceDiv">
+     <view class="{{msgItem}}"  >
+            {{msg}}
+    </view>
+         <view classclass="fz">
+         <image class="ddd" src="http://p1.bpimg.com/580831/ab61c21de6d656c2.png" mode="widthFix"></image>
+         </view>
+        
+        <image  bindtouchstart="start" bindtouchend="end" class="voice" mode="aspectFit" src="{{src}}"></image>
+         <view bindtap="close" class="dogo">不想说话？点击进入</view>
+    </view>
+</view>

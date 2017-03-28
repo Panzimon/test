@@ -1,0 +1,120 @@
+.container {
+  height: 100%;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  /*padding: 0rpx 0;*/
+  box-sizing: border-box;
+  font-family: "Microsoft Yahei","Consolas","sans-serif";
+}
+page {
+  display: block;
+  /*height: 100%;*/
+  min-height: 100%;
+}
+.flex-wrap {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+.flex-row {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+}
+.flex-col {
+  display: flex;
+  -webkit-display: flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+.f1 {
+  flex: 1;
+  -webkit-flex: 1;
+}
+.f2 {
+  flex: 2;
+  -webkit-flex: 2;
+}
+.f3 {
+  flex: 3;
+  -webkit-flex: 3;
+}
+.f4 {
+  flex: 4;
+  -webkit-flex: 4;
+}
+/* 定义主题背景色：#BE1E28 */
+.bg {
+  background-color: #BE1E28;
+}
+view, text, page {
+  box-sizing: border-box;
+}
+.fontSize12 {
+  font-size: 1.2rem;
+}
+.fontSize08 {
+  font-size: 0.8rem;
+}
+.fontSize16 {
+  font-size: 1.6rem;
+}
+.colorGray {
+  color: #BDBDBD;
+}
+.colorWhite  {
+  color: #fff;
+}
+.colorBlue {
+  color: #3D4585;
+}
+.colorDarkGray {
+    color: #666;
+}
+.w100 {
+  width: 100%;
+}
+.w25 {
+  width: 25%;
+}
+.w30 {
+  width: 30%;
+}
+.w50 {
+  width: 50%;
+}
+.clearfix:after { 
+  content: "."; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden; 
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.tl {
+  text-align: left;
+}
+.tc {
+  text-align: center;
+}
+.tr {
+  text-align: right;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

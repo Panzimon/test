@@ -1,0 +1,14 @@
+<textarea maxlength="-1" class="text" bindblur="textChange" value="{{textArea}}"/>
+       
+        <view class="container">
+            <view class="laber">
+            <view class="laber_list"  wx:for="{{user_laber}}" bindtap="isDeleteLaber" id = "{{index}}">
+                {{item}}
+            </view>
+            <view class="laber_input">
+                <input bindinput="bindLaberInput" bindconfirm="endLaberInput"  placeholder="请输入标签" focus="{{focus}}" value="{{laber_input}}" />
+            </view>
+            <view style="clear:both"></view>
+            </view>
+        </view>
+        

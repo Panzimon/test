@@ -1,0 +1,16 @@
+<view class="wrapp">
+    <form bindsubmit="formSubmit" report-submit="true">
+            <include src="../public/add&editMemo.wxml"/>
+            <view class="footer">
+                <view class="foot">
+                    <button bindtap="back" style="background:transparent; line-height:inherit " >
+                        取消
+                    </button>
+                </view>
+                <view class="foot">
+                    <button  style="background:transparent; line-height:inherit; color:#1aad19 " 
+                    formType="{{submit}}" data-id="{{id}}" >保存</button>
+                </view>
+             </view>
+    </form>
+</view>

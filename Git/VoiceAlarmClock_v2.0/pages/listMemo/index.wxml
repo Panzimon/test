@@ -1,0 +1,52 @@
+<view class="wrapper">
+  <view class="rl">
+        <view class="time">
+            <view class="year">{{year}}</view>
+            <view class="month">{{month}}</view>
+            <view class="day">{{day}}th</view>
+        </view>
+  </view>
+  <view class="adddiv">
+        备忘列表
+        <!--<image class="add" src="{{add}}"  bindtap="addMemo" ></image>-->
+  </view>
+   <view class="border"></view>
+   <scroll-view class="logbox" scroll-y="true">
+        <block wx:for="{{memo}}" wx:if="{{mystatus!=0}}">
+            <view  class="log" hidden="{{item.delet}}">
+                 <view bindtap="forEdit"  data-id="{{item.id}}"                             
+                    data-content="{{item.content}}" 
+                    data-allTime="{{item.update_time}}"                         
+                    data-laber="{{item.laber}}" class="left" >
+                    <block wx:if="{{item.title.length==10}}">
+                         <view class="log_leftO">{{item.title}}</view>
+                    </block>
+                     <block wx:else>
+                        <view class="log_leftO">{{item.title}}</view>
+                     </block>
+
+                     <block wx:if="{{item.labershow.length==3}}">
+                        <view class="log_leftT" >
+                            {{item.labershow}}...
+                        </view>
+                       
+                     </block>
+                     <block wx:else>
+                        <view class="log_leftT" >
+                         {{item.labershow}}
+                         </view>
+                     </block>
+                    <view class="log_leftT" wx:if="{{item.laber==''}}" style="color:#EFEFEF" >　</view>
+                </view>
+                <view class="right">
+                    <view class="ic" bindtap="delet"  data-id="{{item.id}}" data-index="{{index}}">
+                        <image class="icon" src="{{delet_icon}}" 
+                       ></image>
+                    </view>
+                </view>
+            </view>
+        </block >
+        <block wx:if="{{mystatus==0}}"> </block >
+   </scroll-view>
+   <include src="../public/footer/index.wxml"/>
+</view>

@@ -1,0 +1,38 @@
+page{background-color: #f9fbf9;overflow: hidden}
+
+.tip{
+    text-align: center;
+    padding-top: 100rpx;
+    font-size: 50rpx;
+    font-weight:bolder;
+    margin-bottom: 60rpx
+}
+
+.tip0{text-align: center; margin-top: 40rpx; font-size: 40rpx}
+.voiceDiv{text-align: center; margin-top: 160rpx}
+.voice{width: 240rpx; height: 240rpx  }
+.close{width: 40rpx; height: 40rpx; position: fixed; top:60rpx; right:60rpx}
+.green{color: #1aad19}
+.ddd{width: 160rpx;}
+.fz{ position: relative; top: 100rpx}
+
+.error{
+    border:1px solid red; padding:4rpx; color:red; width:400rpx; margin:auto; 
+}
+.over{
+     width:400rpx; margin:auto; opacity: 0; padding:4rpx;
+}
+.ok{border:1px solid green; padding:4rpx; color:green; width:400rpx; margin:auto}
+
+.dogo{
+   
+    margin: auto;
+    margin-top: 60rpx;
+    font-size: 30rpx;
+    color:#1aad19;
+}
+
+
+.status{width: 480rpx; margin: auto; text-align: center;  color: red; margin-top:40rpx; height: 40rpx}
+.statusErr{opacity: 1;}
+.statusOk{  opacity: 0;  }

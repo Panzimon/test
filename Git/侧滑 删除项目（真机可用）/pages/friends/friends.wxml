@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="searchInfo" bindtap="searchInfo">
+    <input bindinput="matchInput" class="searchMessage tl" value="{{inputVal}}" placeholder="◎ 搜索" focus="{{focus}}" />
+  </view>
+  <view class="changePageMask w100">
+    <view class="friendsList fl w100">
+      <block wx:for="{{friendList}}" wx:for-item="list" wx:for-index="idxall" wx:key="">
+        <block wx:if="{{list.items}}" wx:key=''>
+          <view class="letter w100">
+            <text>{{list.xing}}</text>
+          </view>
+          <block wx:for="{{list.items}}" wx:for-item="item" wx:for-index="idx" wx:key='name'>
+            <view class="userInfo w100 flex-row" data-name="{{item}}" bindtap="friendInfo" bindtouchend="moveEnd" bindtouchstart="moveStart" animation="{{tempName == item ? deleteAnimation : ''}}">
+              <image class="userImage" mode="scaleToFill" src="{{ item.imgUrl || '/image/no-people.png'}}"></image>
+              <text class="userName"> {{item}} </text>
+              <view class="deleteFriend bg colorWhite tc" catchtap="removeFriend" data-idxall="{{idxall}}" data-idx="{{idx}}"> 删 除 </view>
+            </view>
+          </block>
+        </block>
+      </block>
+    </view>
+  </view>
+</view>

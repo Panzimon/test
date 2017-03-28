@@ -1,0 +1,29 @@
+{
+  "pages":[
+    "pages/friends/friends",
+    "pages/index/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {         
+    "color": "#787878",
+    "selectedColor": "#BE1E28",
+    "borderStyle": "#B2B2B2",
+    "backgroundColor": "#F9F9F9",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "image/2.png",
+      "selectedIconPath": "image/2l.png",
+      "text": "活动"
+    }, {
+      "pagePath": "pages/friends/friends",
+      "iconPath": "image/3.png",
+      "selectedIconPath": "image/3l.png",
+      "text": "好友"
+    }]
+  }
+}

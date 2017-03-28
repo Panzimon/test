@@ -1,0 +1,6 @@
+.footer{width: 100%;  height: 100rpx; position: fixed; bottom: 0; display: flex; align-items: center;
+border-top:#b4b5b4 solid 1rpx; color: #b4b5b4 ; background-color: #ffffff}
+.fo{float: left; width: 33.33%;  text-align: center; box-sizing: border-box; font-size: 20rpx; line-height: 20rpx;}
+.f2{ position: relative;  }
+.rc{width: 50rpx; height: 50rpx}
+.rc2{width: 120rpx; height: 120rpx; position: absolute; margin: auto; left: 0; right: 0; top:-100rpx }

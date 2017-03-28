@@ -1,0 +1,26 @@
+/**index.wxss**/
+@import "../public/footer/index.wxss";
+@import "../public/public.wxss";
+.wrapper{overflow: hidden}
+.year_month{color:#1aad19; font-weight:800 }
+
+
+.logbox{width: 90%; height: 700rpx; margin: auto; margin-top:20rpx; }
+.log{border-bottom:1rpx solid #b4b5b4; line-height: 80rpx; display: flex; justify-content: space-between;  align-items: center; }
+.log_leftO{ white-space: nowrap;
+     text-overflow: ellipsis;
+     overflow: hidden;}
+.log_leftT{font-size: 30rpx; color:#1aad19; margin-top:-30rpx  }
+.icon{width: 30rpx; height: 30rpx}
+
+
+.add{width: 40rpx; height:40rpx; float:right ; padding:  0 20rpx }
+.adddiv{ padding: 30rpx 5% ;  text-align: center }
+
+
+.left{width:80% ; 
+}
+.right{width: 20%; text-align: right }
+.ic{ width: 100%; padding-right: 30rpx}
+
+.border{background-color: #fcf9fe; border-top:#d2d1d3 solid 1rpx ; height: 10rpx; }

@@ -1,0 +1,11 @@
+<!--index.wxml-->
+
+
+<view class="top" wx:for="{{oneList}}" wx:for-item="i" wx:for-index="id" data-id="{{i.id-1}}" wx:key="id" bindtap="add">
+      {{id}}   
+</view>
+
+
+<view class="bottom">
+     {{id}}:{{oneList[id].name}}
+</view>

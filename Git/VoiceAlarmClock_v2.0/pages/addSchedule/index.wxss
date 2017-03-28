@@ -1,0 +1,46 @@
+/**index.wxss**/
+@import "../public/public.wxss";
+page{background-color:#f0f0f6; }
+.wrapp{width: 100%;}
+.start{
+    background-color: red;
+    width: 40%;
+    float: left;
+    text-align: center
+}
+.center{width: 20%;float: left; text-align: center}
+.end{
+    background-color: blue;
+    width: 40%;
+    float: left;
+    text-align: center
+}
+
+.ul{margin-top: 20rpx; overflow: hidden;  background-color: white}
+.li{overflow: hidden;  padding: 20rpx 0; border-bottom:#cdcdcd solid 1px; width: 90%; margin: auto }
+.li:last-child{border: none}
+.ico_img{width: 40rpx; height: 40rpx; float:left; }
+.txt{float:left; margin-left: 20rpx;  }
+.contetn{float:right; margin-right: 20rpx  }
+.date,.time{display: inline-block; text-align: right;}
+.date{ margin-right: 20rpx}
+.go{float:right;  width: 30rpx; height: 40rpx;}
+
+
+.tip{width: 90%; margin: auto; margin-top: 40rpx;  }
+.tipContent{display: flex; flex-direction:row; flex-flow:wrap }
+.tipCxtNormal{border:1rpx solid #666666; border-radius:30rpx;  padding: 4rpx 20rpx;  margin-right: 20rpx  ;margin-bottom:20rpx ; background-color: white}
+.tipCxtActive{border:1rpx solid #1aad19; color:#1aad19; border-radius:30rpx;  padding: 4rpx 20rpx;  margin-right: 20rpx  ;margin-bottom:20rpx;  background-color: white }
+.footer{position: fixed; bottom: 0; width: 100%; background-color: white}
+.foot{width:50%;
+float:left;
+border-radius:0;
+text-align:center;
+padding:40rpx 0;
+box-sizing:border-box;
+border-top:#c3c3c8 solid 1rpx;
+ }
+.foot:last-child{border-left:#cdcdcd solid 1px; color:#1aad19  }
+button::after{border:none; }
+
+

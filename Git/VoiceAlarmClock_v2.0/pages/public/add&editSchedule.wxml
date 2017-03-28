@@ -1,0 +1,55 @@
+       <textarea class="text" bindblur="textChange" value="{{textArea}}"/>
+        <view class="ul">
+            <view class="li">
+                <image src="{{timeIco}}" class="ico_img"></image>
+                <view class="txt">时间</view>
+                <image src="{{ico_go}}" class="go"></image>
+                <view class="contetn">
+                  <picker mode="date" class="date" value="{{Date}}"  bindchange="DateChange">
+                        <view class="picker">{{Date}}</view>
+                    </picker>
+                    <picker mode="time" class="time" style="color:black; width:100rpx" 
+                      value="{{Time}}"  bindchange="TimeChange">
+                        <view class="picker">{{Time}}</view>
+                    </picker>
+                </view>
+                
+            </view>
+            
+
+
+
+            <view class="li">
+                <image src="{{remindIco}}" class="ico_img"></image>
+                <view class="txt">提醒</view>
+                <image src="{{ico_go}}" class="go"></image>
+                <view class="contetn">
+                    <picker bindchange="remindChange" 
+                        value="{{remindIndex}}" range="{{remind}}">
+                        <view class="picker">{{remind[remindIndex]}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="li"  hidden="true">
+                <image src="{{repeatIco}}" class="ico_img"></image>
+                <view class="txt">重复</view>
+                <image src="{{ico_go}}" class="go"></image>
+                <view class="contetn">
+                    <picker bindchange="repeatChange" 
+                    value="{{repeatIndex}}" range="{{repeat}}">
+                        <view class="picker">{{repeat[repeatIndex]}}</view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+
+        <view class="tip">
+            <view>所有标签</view>
+             <view class="tipContent">
+                <block wx:for="{{tip}}">
+                    <view class="{{item.style}}" 
+                    data-style="{{item.style}}"  data-index="{{index}}"
+                    bindtap="tipChange">{{item.name}}</view>
+               </block>
+             </view>
+        </view>

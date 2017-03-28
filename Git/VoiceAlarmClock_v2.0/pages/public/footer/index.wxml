@@ -1,0 +1,14 @@
+<view class="footer">
+
+    <view class="fo f1" bindtap="forRc">
+        <image class="rc" src="{{rc}}"></image>
+         <view>日程</view>
+    </view>
+    <view class="fo f2" bindtap="footer">
+        <image class="rc2" src="http://i1.piimg.com/580831/f56e8040680321cf.png"></image>
+    </view>
+    <view class="fo f3" bindtap="forBw">
+        <image class="rc" src="{{bw}}"></image>
+        <view>备忘</view>
+    </view>
+</view>

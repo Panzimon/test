@@ -1,0 +1,20 @@
+
+	<view class="content-container">
+			<view class="goods" wx:for="{{goods}}" wx:for-item="i" wx:for-index="id" data-id="{{i.id}}" wx:key="id" >   
+				<view class="goodsbox">			
+				
+					<view class="title2">{{goods[id].name}}</view>       
+					<view class="title3" bindtap="tapAddCart" data-id="{{id}}">选择</view>
+				</view>
+			</view>
+		
+	</view>
+
+	
+		<view class="list">
+			<view class="item" wx:for="{{cart.list}}" wx:for-index="id" wx:for-item="num" wx:key="id">
+				{{goods[id].name}} {{cart.list[id]}}
+			</view>
+		</view>
+	
+<view>{{cart.list[0]}} : {{cart.list[1]}}: {{cart.list[2]}}: {{cart.list[3]}}</view>

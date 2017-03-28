@@ -1,0 +1,28 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/album/album"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+	"tabBar": {
+		"color": "#7F8389",
+		"selectedColor": "#f95959",
+		"borderStyle": "black",
+		"list": [
+			{
+				"text": "首页",
+				"pagePath": "pages/index/index"
+			}, {
+				"text": "相册",
+				"pagePath": "pages/album/album"
+			}
+		],
+		"backgroundColor": "#F7F7FA"
+	}
+}
